@@ -37,6 +37,7 @@
       <li><strong>Email address</strong>: collected when you make your first booking. Stored on your account and shared with Paystack to process payment and send you a payment receipt.</li>
       <li><strong>Payment data</strong>: processed by Paystack. We do not store card numbers or bank account details. We store transaction references and booking status only.</li>
       <li><strong>Operational logs</strong>: API request logs on AWS CloudWatch, including your user ID, phone number, and booking/session identifiers, are retained for debugging and fraud prevention. Not used for analytics or shared with third parties.</li>
+      <li><strong>Device notification token</strong>: collected only if you allow notifications. It identifies your device to Apple's and Google's push notification services, and we use it only to send you booking and cancellation notifications. If you do not allow notifications, no token is collected.</li>
     </ul>
 
     <h2>How we use your data</h2>
@@ -51,13 +52,14 @@
       <li><strong>Twilio Verify</strong>: delivers your OTP. Your phone number is sent to Twilio to initiate verification. <a href="https://www.twilio.com/legal/privacy" target="_blank">Twilio Privacy Policy</a></li>
       <li><strong>Paystack</strong>: processes payments. Your email address and payment details are handled by Paystack under their PCI-DSS compliance, and Paystack sends you a payment receipt directly. <a href="https://paystack.com/privacy/merchant" target="_blank">Paystack Privacy Policy</a></li>
       <li><strong>Amazon Web Services (AWS)</strong>: hosts our backend infrastructure in the EU (eu-west-1). <a href="https://aws.amazon.com/privacy/" target="_blank">AWS Privacy Policy</a></li>
+      <li><strong>Expo (Expo Application Services)</strong>: delivers push notifications to your device. Your device notification token and the content of each notification, which can include the venue name, the session time and a cancellation note written by the venue, pass through Expo's servers on the way to Apple's and Google's push notification services. <a href="https://expo.dev/privacy" target="_blank">Expo Privacy Policy</a></li>
     </ul>
 
     <h2>Data retention</h2>
-    <p>We retain your account data (phone number, display name, email address, booking history) for as long as your account is active. You may request deletion at any time.</p>
+    <p>We retain your account data (phone number, display name, email address, booking history) for as long as your account is active. You may request deletion at any time, either from within the app (Profile &gt; Delete Account) or by email (see "Your rights" below). Submitting a request does not delete your account immediately — it is reviewed and actioned by our team.</p>
 
     <h2>Your rights</h2>
-    <p>You have the right to access, correct, or delete your personal data. To submit a request, email <a href="mailto:info.football@chairpact.com">info.football@chairpact.com</a>. We will respond within 30 days.</p>
+    <p>You have the right to access, correct, or delete your personal data. To submit a deletion request, use the "Delete Account" option in the app (Profile tab) or email <a href="mailto:info.football@chairpact.com">info.football@chairpact.com</a>. We will respond within 30 days. Submitting a request in the app does not log you out or delete your data immediately, your account remains active and usable while the request is reviewed.</p>
 
     <h2>Data security</h2>
     <p>All data is transmitted over HTTPS. Phone numbers are stored in AWS DynamoDB. Payments are processed by Paystack and never touch our servers in raw form.</p>
@@ -93,11 +95,19 @@
     <p>Payments are processed by Paystack. By completing a payment, you agree to Paystack's terms. Play Footy 9ja charges the session price set by the session host.</p>
 
     <h2>Refunds</h2>
+    <p>How a refund works depends on who cancels.</p>
+    <p><strong>If the session is cancelled by us or by the venue</strong></p>
+    <ul>
+      <li><strong>Not enough players</strong>: if a session does not reach its minimum number of players by the cutoff time before it starts, the session is cancelled automatically and every confirmed booking on it is refunded in full, whatever the timing.</li>
+      <li><strong>Cancelled by the venue</strong>: if a session is cancelled by the venue or by Play Footy 9ja for any other reason, every confirmed booking on it is refunded in full, whatever the timing.</li>
+      <li>You do not need to request either of these refunds. They are issued automatically to the payment method you booked with.</li>
+    </ul>
+    <p><strong>If you cancel your own booking</strong></p>
     <ul>
       <li><strong>Spot bookings</strong>: full refund for cancellations made more than 24 hours before the session start time. No refund for cancellations made within 24 hours.</li>
       <li><strong>Whole pitch bookings</strong>: full refund for cancellations made more than 72 hours before the session start time. No refund for cancellations made within 72 hours. Cancelling a whole pitch booking releases all spots back to the session.</li>
-      <li>Refunds are processed via Paystack and may take 5 to 10 business days to reach your account.</li>
     </ul>
+    <p>Refunds are processed via Paystack and may take 5 to 10 business days to reach your account.</p>
 
     <h2>Limitation of liability</h2>
     <p>Play Footy 9ja is not responsible for injuries, loss, or damage that occur during sessions. Session hosts are responsible for the safety of their sessions. Use the app at your own risk.</p>
